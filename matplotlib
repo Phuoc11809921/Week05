@@ -1,0 +1,125 @@
+# Vẽ đồ thị đường thẳng
+import numpy as np
+from matplotlib import pyplot as plt
+
+x = np.arange(3, 10)
+y = 4*x + 3
+
+plt.title("Linear Function")
+plt.xlabel("x axis")
+plt.ylabel("y axis")
+plt.plot(x,y)
+plt.show()
+
+# Vẽ đồ thị hàm sphere
+import numpy as np
+from matplotlib import pyplot as plt
+
+x = np.arange(-10,10,0.01)
+y = x*x
+
+plt.title("Sphere Function")
+plt.xlabel("x axis")
+plt.ylabel("y axis")
+plt.plot(x,y)
+plt.show()
+
+# Vẽ đồ thị hàm cosine
+import numpy as np
+from matplotlib import pyplot as plt
+
+x = np.arange(-10,10,0.01)
+y = np.cos(x)
+
+plt.title("Cosine Function")
+plt.xlabel("x axis")
+plt.ylabel("y axis")
+plt.plot(x,y)
+plt.show()
+
+# Vẽ đồ thị hàm tanh
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def tanh(x):
+  ex = np.exp(x)
+  emx = np.exp(-x)
+  return (ex - emx) / (ex + emx)
+
+# calculate plot points
+x = np.arange(-5.,5.,0.1)
+a = tanh(x)
+dx = 1 - a**2
+
+# setup centered axes
+fig, ax = plt.subplots(figsize=(10, 5))
+ax.spines['left'].set_position('center')
+ax.spines['bottom'].set_position('center')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+ax.xaxis.set_ticks_position('bottom')
+ax.yaxis.set_ticks_position('left')
+
+# Create and show plot
+ax.plot(x, a, color="#d35400", linewidth=3, label="tanh")
+ax.plot(x, dx, color="#labd15", linewidth=3, label="derivative")
+ax.legend(loc="upper left", frameon=False)
+fig.show()
+
+# Vẽ đồ thị hàm sigmoid
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def sigmoid(x):
+  return 1./(1+np.e**(-x))
+
+# calculate plot points
+x = np.arange(-5.,5.,0.01)
+y = sigmoid(x)
+dx = y*(1-y)
+
+# setup centered axes
+fig, ax = plt.subplots(figsize=(10, 5))
+ax.spines['left'].set_position('center')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+ax.xaxis.set_ticks_position('bottom')
+ax.yaxis.set_ticks_position('left')
+
+# Create and show plot
+ax.plot(x, y, color="#d35400", linewidth=3, label="sigmoid")
+ax.plot(x, dx, color="#labd15", linewidth=3, label="derivative")
+ax.legend(loc="upper left", frameon=False)
+fig.show()
+
+# Vẽ đồ thị hàm ReLU
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+def relu_function(data):
+  return (np.abs(data) + data) / 2
+
+def relu_derivative(data):
+  return (data > 0) * 1
+
+# calculate plot points
+data = np.arange(-2.,2.,0.01)
+data_relu = relu_function(data)
+data_drelu = relu_derivative(data_relu)
+
+# setup centered axes
+fig, ax = plt.subplots(figsize=(10, 5))
+ax.spines['left'].set_position('center')
+ax.spines['right'].set_color('none')
+ax.spines['top'].set_color('none')
+ax.xaxis.set_ticks_position('bottom')
+ax.yaxis.set_ticks_position('left')
+
+# Create and show plot
+ax.plot(data, data_relu, color="#d35400", linewidth=3, label="relu")
+ax.plot(data, data_drelu, color="#labd15", linewidth=3, label="derivative")
+ax.legend(loc="upper left", frameon=False)
+fig.show()
