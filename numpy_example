@@ -1,0 +1,203 @@
+# Tạo mảng numpy 1 chiều từ 0 đến 9
+
+import numpy as np
+
+arr = np.arange(0,10)
+#arr = np.arange(10)
+
+print(type(arr))
+print(arr.shape)
+print(arr)
+
+# Tạo một mảng boolean 2×3 với tất cả giá trị là True
+
+import numpy as np
+
+# Cach 1
+arr1 = np.ones((2,3)) > 0
+print("method 1")
+print(arr1)
+
+# Cach 2
+arr2 = np.ones((2,3), dtype=bool)
+print("\nmethod 2")
+print(arr2)
+
+# Cach 3
+arr3 = np.full((2,3),True, dtype=bool)
+print("\nmethod 3")
+print(arr3)
+
+# Lấy những phần tử mà thoả mãn một điều kiện cho trước của mảng một chiều
+
+import numpy as np
+
+# tao mang 1 chieu tu 0 den 9
+arr = np.arange(10)
+print(arr)
+
+# tim phan tu co gia tri le
+arr_odd = arr[arr % 2 == 1]
+print("\nndarray of odd number")
+print(arr_odd)
+
+# tim phan tu co gia tri chan
+arr_odd = arr[arr % 2 == 0]
+print("\nndarray of odd number")
+print(arr_odd)
+
+# Thay thế phần tử thoả mãn điều kiện cho trước bằng 1 một giá khác.
+
+import numpy as np
+
+# tao mang 1 chieu tu 0 den 9
+arr = np.arange(10)
+print(arr)
+
+# thay the phan tu co gia tri le bang 10
+arr[arr % 2 == 1] = 10
+print(arr)
+
+# Thay thế phần tử thoả mãn điều kiện cho trước bằng 1 một giá khác nhưng không thay đổi mảng ban đầu. 
+
+import numpy as np
+
+# tao mang 1 chieu tu 0 den 9
+arr = np.arange(10)
+print(arr)
+
+# thay doi tat ca cac gia tri chan bang 11 nhung khong thay doi mang
+out = np.where(arr % 2 == 0,11,arr)
+print(out)
+print(arr)
+
+# Cho mảng một chiều có giá trị từ 0 đến 9, chuyển mảng 1 chiều này thành mảng 2 chiều có 2 hàng (dòng).
+
+import numpy as np
+
+# tao mang 1 chieu tu 0 den 9
+arr = np.arange(10)
+print(arr)
+
+# -1 co y nghia la so cot cua arr_2d duoc tinh tu dong
+arr_2d = arr.reshape(2,-1)
+print(arr_2d)
+
+# Cho 2 mảng sau: 
+# arr1 = np.arange(10).reshape(2,-1)
+# arr2 = np.arange(10,0,-1).reshape(2,-1)
+# hãy xếp chồng 2 mảng theo chiều dọc.
+
+import numpy as np
+
+# tao 2 mang arr1 va arr2
+arr1 = np.arange(10).reshape(2,-1)
+print('ndarry 1')
+print(arr1)
+
+arr2 = np.arange(10,0,-1).reshape(2,-1)
+print('\nndaarry 2')
+print(arr2)
+
+# Cach 1
+out1 = np.concatenate([arr1, arr2], axis=0)
+print('\noutput 1')
+print(out1)
+
+# Cach 2
+out2 = np.vstack([arr1, arr2])
+print('\noutput 2')
+print(out2)
+
+# Cach 3
+out3 = np.r_[arr1, arr2]
+print('\noutput 3')
+print(out3)
+
+# Cho 2 mảng sau: 
+# arr1 = np.arange(10).reshape(2,-1)
+# arr2 = np.arange(10,0,-1).reshape(2,-1)
+# hãy xếp chồng 2 mảng theo chiều ngang.
+
+import numpy as np
+
+# tao 2 mang arr1 va arr2
+arr1 = np.arange(10).reshape(2,-1)
+print('ndarry 1')
+print(arr1)
+
+arr2 = np.arange(10,0,-1).reshape(2,-1)
+print('\nndaarry 2')
+print(arr2)
+
+# Cach 1
+out1 = np.concatenate([arr1, arr2], axis=1)
+print('\noutput 1')
+print(out1)
+
+# Cach 2
+out2 = np.hstack([arr1, arr2])
+print('\noutput 2')
+print(out2)
+
+# Cach 3
+out3 = np.c_[arr1, arr2]
+print('\noutput 3')
+print(out3)
+
+# Tạo mảng với các phần tự được lặp lại từ một mảng khác
+# arr = np.array([1,2,3])
+
+
+import numpy as np
+
+arr = np.array([1,2,3])
+print(arr)
+
+# tao mang moi, lap lai moi phan tu cua arr 2 lan
+out1 = np.repeat(arr, 2)
+print('\noutput 1')
+print(out1)
+
+# tao mang moi, lap lai mang arr 2 lan
+out2 = np.tile(arr, 2)
+print('\noutput 2')
+print(out2)
+
+# Cho 2 mang sau
+# arr1 = np.array([1, 2, 3, 4, 5]) 
+# arr2 = np.array([3, 4, 5, 6, 7])
+# lấy phần tử chung của 2 mảng arr1 và arr2.
+
+import numpy as np
+
+arr1 = np.array([1, 2, 3, 4, 5]) 
+arr2 = np.array([3, 4, 5, 6, 7])
+
+print('adarray 1 and 2')
+print(arr1)
+print(arr2)
+
+out = np.intersect1d(arr1, arr2)
+print('\noutput ')
+print(out)
+
+# Cho 2 mang sau
+# arr1 = np.array([2, 3, 4, 5])
+# arr2 = np.array([3, 5, 7, 9])
+# Từ mảng arr1 xoá tất cả các phần tử mà có trong mảng arr2
+
+import numpy as np
+
+arr1 = np.array([2, 3, 4, 5]) 
+arr2 = np.array([3, 5, 7, 9])
+
+print('adarray 1 and 2')
+print(arr1)
+print(arr2)
+
+# tu mang arr1 xoa tat ca cac phan tu ma co trong mang arr2
+out = np.setdiff1d(arr1, arr2)
+print('\noutput ')
+print(out)
+
